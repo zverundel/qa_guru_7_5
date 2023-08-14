@@ -18,11 +18,19 @@ def test_practice_form():
     browser.element('.react-datepicker__year-select').click()
     browser.element('.react-datepicker__year-select [value="1998"]').perform(command.js.scroll_into_view).click()
     browser.element('[aria-label="Choose Monday, May 4th, 1998"]').click()
+
+    #Выбор предмета
     browser.element('#subjectsInput').should(be.blank).type('Maths').press_enter()
+
+    #Выбор хобби
     browser.element('[for="hobbies-checkbox-1"]').click()
     browser.element('[for="hobbies-checkbox-2"]').click()
     browser.element('[for="hobbies-checkbox-3"]').click()
+
+    #Загрузка картинки
     browser.element('#uploadPicture').send_keys(os.path.abspath('resources/test_picture.jpg'))
+
+    #Адрес
     browser.element('#currentAddress').should(be.blank).type('orehovo-zuevo, parcov, 15')
     browser.element('#state').click()
     browser.element('#react-select-3-input').type('NCR').press_enter()
@@ -30,6 +38,8 @@ def test_practice_form():
     browser.element('#react-select-4-input').type('Noida').press_enter()
     browser.element('#submit').click()
     browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
+
+    #Проверка
     browser.element('.table').should(have.text('Student Name Daniil Zverev'
                                                and 'Student Email test@gmail.ru'
                                                and 'Gender Male'
