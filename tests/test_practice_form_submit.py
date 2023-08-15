@@ -2,7 +2,7 @@ import os
 from selene import browser, be, have, command
 
 
-def test_practice_form():
+def test_practice_form(browser_firefox_open, browser_size):
     # Заполнение основной информации
     browser.open('https://demoqa.com/automation-practice-form')
     browser.element('#firstName').should(be.blank).type('Daniil').press_tab()
@@ -40,13 +40,13 @@ def test_practice_form():
     browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
 
     #Проверка
-    browser.element('.table').should(have.text('Student Name Daniil Zverev'
-                                               and 'Student Email test@gmail.ru'
-                                               and 'Gender Male'
-                                               and 'Mobile 8977345674'
-                                               and 'Date of Birth 04 May,1998'
-                                               and 'Subjects Maths'
-                                               and 'Hobbies Sports, Reading, Music'
-                                               and 'Picture test_picture.jpg'
-                                               and 'Address orehovo-zuevo, parcov, 15'
-                                               and 'State and City NCR Noida'))
+    browser.all('.table>tbody>tr')[0].should(have.exact_text('Student Name Daniil Zverev'))
+    browser.all('.table>tbody>tr')[1].should(have.exact_text('Student Email test@gmail.ru'))
+    browser.all('.table>tbody>tr')[2].should(have.exact_text('Gender Male'))
+    browser.all('.table>tbody>tr')[3].should(have.exact_text('Mobile 8977345674'))
+    browser.all('.table>tbody>tr')[4].should(have.exact_text('Date of Birth 04 May,1998'))
+    browser.all('.table>tbody>tr')[5].should(have.exact_text('Subjects Maths'))
+    browser.all('.table>tbody>tr')[6].should(have.exact_text('Hobbies Sports, Reading, Music'))
+    browser.all('.table>tbody>tr')[7].should(have.exact_text('Picture test_picture.jpg'))
+    browser.all('.table>tbody>tr')[8].should(have.exact_text('Address orehovo-zuevo, parcov, 15'))
+    browser.all('.table>tbody>tr')[9].should(have.exact_text('State and City NCR Noida'))
