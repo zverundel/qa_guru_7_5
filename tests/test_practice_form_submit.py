@@ -2,7 +2,7 @@ import os
 from selene import browser, be, have, command
 
 
-def test_practice_form(browser_firefox_open, browser_size):
+def test_practice_form(browser_size):
     # Заполнение основной информации
     browser.open('https://demoqa.com/automation-practice-form')
     browser.element('#firstName').should(be.blank).type('Daniil').press_tab()
