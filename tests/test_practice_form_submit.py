@@ -2,9 +2,9 @@ import os
 from selene import browser, be, have, command
 
 
-def test_practice_form(browser_size):
+def test_practice_form(browser_open_url):
     # Заполнение основной информации
-    browser.open('https://demoqa.com/automation-practice-form')
+    browser.open('/automation-practice-form')
     browser.element('#firstName').should(be.blank).type('Daniil').press_tab()
     browser.element('#lastName').should(be.blank).type('Zverev').press_tab()
     browser.element('#userEmail').should(be.blank).type('test@gmail.ru')
